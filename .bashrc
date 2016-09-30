@@ -113,8 +113,26 @@ if ! shopt -oq posix; then
   fi
 fi
 
-export PATH=$PATH:/home/bauhaus/sbt/bin
 
+## TODO LIST ##
+# Better lexical parser to determine meaning of input
+# Escape single quotes to ensure they don't open new inner string
+# Might just want to build entire new shell for her
+# Node shell?
+# Bash history log? She seemed unhappy about something and was talking to Tracy about it
+###############
+
+parseTokens (inputString) {
+}
+
+startTracy() {
+  echo 'Tracy starting'
+}
+
+export PATH=$PATH:/home/bauhaus/sbt/bin
+export PS1="tracy > "
+
+alias tracy=startTracy()
 alias chromeos='sudo cgpt add -i 6 -P 0 -S 0 /dev/sda;sudo reboot'
 alias rowan='echo "Hello Rowan, how are you?"'
 alias hello='echo "Hello Rowan, how are you?"'
@@ -138,3 +156,4 @@ alias josh='echo "yes honey?"'
 alias school='echo "How was school today? I do hope you had a good day."'
 alias mom='echo "How is mom doing? She and dad love you very much."'
 alias dad='echo "How is dad doing? He and mom love you very much."'
+alias .rc='source ./.bashrc'
